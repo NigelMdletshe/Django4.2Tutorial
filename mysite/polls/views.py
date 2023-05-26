@@ -12,7 +12,9 @@ def index(request):
     context = {"latest_question_list": latest_question_list}
     return render(request,"polls/index.html",context)
 
-
+#The get_object_or_404() function takes a Django model as its first argument
+# and an arbitrary number of keyword arguments, which it passes to 
+# the get() function of the model’s manager. It raises Http404 if the object doesn’t exist.
 def detail(request,question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request,"polls/detail.html",{"question":question})
